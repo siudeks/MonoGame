@@ -94,15 +94,6 @@ namespace Microsoft.Xna.Framework.Graphics
 			{
 				BuildHierarchy(child, node.ModelTransform, level + 1);
 			}
-			
-			//string s = string.Empty;
-			//
-			//for (int i = 0; i < level; i++) 
-			//{
-			//	s += "\t";
-			//}
-			//
-			//Debug.WriteLine("{0}:{1}", s, node.Name);
 		}
 
         /// <summary>
