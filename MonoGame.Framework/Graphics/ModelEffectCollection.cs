@@ -9,8 +9,9 @@ using System.Collections.ObjectModel;
 
 namespace Microsoft.Xna.Framework.Graphics
 {
-	// Summary:
-	//     Represents a collection of effects associated with a model.
+    /// <summary>
+    /// Represents a collection of effects associated with a model.
+    /// </summary>
 	public sealed class ModelEffectCollection : ReadOnlyCollection<Effect>
 	{
 		internal ModelEffectCollection(IList<Effect> list)
@@ -22,9 +23,12 @@ namespace Microsoft.Xna.Framework.Graphics
 	    internal ModelEffectCollection() : base(new List<Effect>())
 	    {
 	    }
-		
-		//ModelMeshPart needs to be able to add to ModelMesh's effects list
-		internal void Add(Effect item)
+
+        /// <summary>
+        /// ModelMeshPart needs to be able to add to ModelMesh's effects list
+        /// </summary>
+        /// <param name="item"></param>
+        internal void Add(Effect item)
 		{
 			Items.Add (item);
 		}
@@ -33,15 +37,18 @@ namespace Microsoft.Xna.Framework.Graphics
 			Items.Remove (item);
 		}
 
-	    // Summary:
-	    //     Returns a ModelEffectCollection.Enumerator that can iterate through a ModelEffectCollection.
+        /// <summary>
+        /// Returns a ModelEffectCollection.Enumerator that can iterate through a ModelEffectCollection.
+        /// </summary>
+        /// <returns></returns>
 	    public new ModelEffectCollection.Enumerator GetEnumerator()
 		{
 			return new ModelEffectCollection.Enumerator((List<Effect>)Items);
 		}
 
-	    // Summary:
-	    //     Provides the ability to iterate through the bones in an ModelEffectCollection.
+        /// <summary>
+        /// Provides the ability to iterate through the bones in an ModelEffectCollection.
+        /// </summary>
 	    public struct Enumerator : IEnumerator<Effect>, IDisposable, IEnumerator
 	    {
 			List<Effect>.Enumerator enumerator;
@@ -53,12 +60,14 @@ namespace Microsoft.Xna.Framework.Graphics
                 disposed = false;
 			}
 
-	        // Summary:
-	        //     Gets the current element in the ModelEffectCollection.
-	        public Effect Current { get { return enumerator.Current; } }
+            /// <summary>
+            /// Gets the current element in the ModelEffectCollection.
+            /// </summary>
+            public Effect Current { get { return enumerator.Current; } }
 
-	        // Summary:
-	        //     Immediately releases the unmanaged resources used by this object.
+            /// <summary>
+            /// Immediately releases the unmanaged resources used by this object.
+            /// </summary>
 	        public void Dispose()
             {
                 if (!disposed)
@@ -67,9 +76,14 @@ namespace Microsoft.Xna.Framework.Graphics
                     disposed = true;
                 }
             }
-	        //
-	        // Summary:
-	        //     Advances the enumerator to the next element of the ModelEffectCollection.
+
+            /// <summary>
+            /// Advances the enumerator to the next element of the ModelEffectCollection.
+            /// </summary>
+            /// <returns>
+            /// true if the enumerator was successfully advanced to the next element; false if
+            /// the enumerator has passed the end of the collection.
+            /// </returns>
 	        public bool MoveNext() { return enumerator.MoveNext(); }
 
 	        #region IEnumerator Members
